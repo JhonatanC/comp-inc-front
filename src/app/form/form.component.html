@@ -10,58 +10,86 @@
 <div class="row mt-4">
 	<div class="col-md-8">
 
-		<form>
+		<form [formGroup]="formulario" (ngSubmit)="saveClient()">
 
 			<div class="form-group">
 				<label>Nombre</label>
-				<input [(ngModel)]="cliente.firtsname" type="text" class="form-control" name="firtsname" placeholder="Nombre">
+				<input type="text" class="form-control" name="firtsname" placeholder="Nombre"
+						[(ngModel)]="cliente.firtsname"
+						formControlName="firtsname"
+						[class.is-invalid]="firtsnameValid">
+				<small class="text-danger" *ngIf="firtsnameValid">Ingresa tú nombre</small>
 			</div>
-
+			
 			<div class="form-group">
 				<label>Apellido</label>
-				<input [(ngModel)]="cliente.lastname" type="text" class="form-control" name="lastname" placeholder="Apellido">
+				<input type="text" class="form-control" name="lastname" placeholder="Apellido"
+						[(ngModel)]="cliente.lastname"
+						formControlName="lastname"
+						[class.is-invalid]="lastnameValid">
+				<small class="text-danger" *ngIf="lastnameValid">Ingresa tú apellido</small>
 			</div>
 
 			<div class="form-group">
 				<label>Número</label>
-				<input [(ngModel)]="cliente.phone" type="tel" class="form-control" name="phone" placeholder="Número">
+				<input type="tel" class="form-control" name="phone" placeholder="Número"
+						[(ngModel)]="cliente.phone"
+						formControlName="phone"
+						[class.is-invalid]="phoneValid">
+				<small class="text-danger" *ngIf="phoneValid">Ingresa un número válido</small>
 			</div>
 
 			<div class="form-group">
 				<label>Dirección</label>
-				<input [(ngModel)]="cliente.adress" type="tel" class="form-control" name="adress" placeholder="Dirección">
+				<input type="tel" class="form-control" name="adress" placeholder="Dirección"
+						[(ngModel)]="cliente.adress"
+						formControlName="adress"
+						[class.is-invalid]="adressValid">
+				<small class="text-danger" *ngIf="adressValid">Ingresa tú dirección</small>
 			</div>
 
 			<div class="form-group">
 				<label>Departamento</label>
-				<select [(ngModel)]="cliente.deparment" name="deparment" id="" class="form-control">
+				<select name="deparment" id="" class="form-control"
+						[(ngModel)]="cliente.deparment"
+						formControlName="deparment"
+						[class.is-invalid]="deparmentValid">
 					<option *ngFor="let departamento of departamentos" value="{{ departamento.name }}">
 						{{ departamento.name }}
 					</option>
 				</select>
+				<small class="text-danger" *ngIf="deparmentValid">Selecciona un departamento</small>
 			</div>
 
 			<div class="form-group">
 				<label>Municipio</label>
-				<select [(ngModel)]="cliente.city" name="city" id="" class="form-control">
+				<select name="city" id="" class="form-control"
+						[(ngModel)]="cliente.city"
+						formControlName="city"
+						[class.is-invalid]="cityValid">
 					<option *ngFor="let municipio of municipios" value="{{ municipio.name }}">
 						{{ municipio.name }}
 					</option>
 				</select>
+				<small class="text-danger" *ngIf="cityValid">Selecciona un municipio</small>
 			</div>
 
 			<div class="form-group">
 				<label>Agente</label>
-				<select [(ngModel)]="cliente.agente_id" name="agente" id="" class="form-control">
+				<select name="agente" id="" class="form-control"
+						[(ngModel)]="cliente.agente_id"
+						formControlName="agente"
+						[class.is-invalid]="agenteValid">
 					<option *ngFor="let agente of agentes" value="{{ agente.id }}">
 						{{ agente.name }}
 					</option>
 				</select>
+				<small class="text-danger" *ngIf="agenteValid">Eligue el agente asignado</small>
 			</div>
 
 
 			<div class="form-group">
-				<button (click)="saveClient()" class="btn btn-primary">Guardar</button>
+				<button type="submit" class="btn btn-primary">Guardar</button>
 			</div>
 
 		</form>
