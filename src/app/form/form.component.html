@@ -1,0 +1,69 @@
+<h1 class="mt-4">Crear nuevo cliente</h1>
+<hr>
+
+<div class="row">
+	<div class="col-md-12">
+		<button routerLink="/home" class="btn btn-danger">Regresar</button>
+	</div>
+</div>
+
+<div class="row mt-4">
+	<div class="col-md-8">
+
+		<form>
+
+			<div class="form-group">
+				<label>Nombre</label>
+				<input [(ngModel)]="cliente.firtsname" type="text" class="form-control" name="firtsname" placeholder="Nombre">
+			</div>
+
+			<div class="form-group">
+				<label>Apellido</label>
+				<input [(ngModel)]="cliente.lastname" type="text" class="form-control" name="lastname" placeholder="Apellido">
+			</div>
+
+			<div class="form-group">
+				<label>Número</label>
+				<input [(ngModel)]="cliente.phone" type="tel" class="form-control" name="phone" placeholder="Número">
+			</div>
+
+			<div class="form-group">
+				<label>Dirección</label>
+				<input [(ngModel)]="cliente.adress" type="tel" class="form-control" name="adress" placeholder="Dirección">
+			</div>
+
+			<div class="form-group">
+				<label>Departamento</label>
+				<select [(ngModel)]="cliente.deparment" name="deparment" id="" class="form-control">
+					<option *ngFor="let departamento of departamentos" value="{{ departamento.name }}">
+						{{ departamento.name }}
+					</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label>Municipio</label>
+				<select [(ngModel)]="cliente.city" name="city" id="" class="form-control">
+					<option *ngFor="let municipio of municipios" value="{{ municipio.name }}">
+						{{ municipio.name }}
+					</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label>Agente</label>
+				<select [(ngModel)]="cliente.agente_id" name="agente" id="" class="form-control">
+					<option *ngFor="let agente of agentes" value="{{ agente.id }}">
+						{{ agente.name }}
+					</option>
+				</select>
+			</div>
+
+
+			<div class="form-group">
+				<button (click)="saveClient()" class="btn btn-primary">Guardar</button>
+			</div>
+
+		</form>
+	</div>
+</div>
