@@ -11,13 +11,16 @@ import { FormComponent } from './form/form.component';
 import { LoginComponent } from './login/login.component';
 
 import { Route, RouterModule } from '@angular/router';
+//import { AuthGuard } from './guards/auth.guard';
 
 const routes: Route[] = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'form', component: FormComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'form/:id', component: FormComponent }
+  /*{ path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'form', component: FormComponent, canActivate: [AuthGuard] },*/
+  { path: 'home', component: HomeComponent},
+  { path: 'form', component: FormComponent},
+  { path: 'form/:id', component: FormComponent},
+  { path: '**', component: LoginComponent }
 ];
 
 @NgModule({

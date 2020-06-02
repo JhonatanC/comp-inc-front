@@ -2,9 +2,13 @@
 <hr>
 
 <div class="row">
-	<div class="col-md-12">
-		<button routerLink="/form" class="btn btn-primary">Agregar</button>
+	<div class="col-md-1">
+    <button routerLink="/form" class="btn btn-primary">Agregar</button>
 	</div>
+  <div class="col-md-2">
+    <!--<button (click)="salir()" class="btn btn-outline-danger">Cerrar Sesión</button>-->
+    <button routerLink="/login" class="btn btn-outline-danger">Cerrar Sesión</button>
+  </div>
 </div>
 
 <table class="table mt-3">
@@ -34,7 +38,7 @@
         <a class="btn btn-primary" routerLink="/form/{{cliente.id}}">Editar</a>
       </td>
       <td>
-        <a class="btn btn-danger" (click)="delete(cliente.id)">Eliminar</a>
+        <a style="color: white;" class="btn btn-danger" (click)="delete(cliente.id)">Eliminar</a>
       </td>
     </tr>
   </tbody>

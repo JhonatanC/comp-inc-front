@@ -123,28 +123,15 @@ export class FormComponent implements OnInit {
 		if(this.editing){
 			this.clienteService.put(this.cliente).subscribe( (data) => {
 				this.router.navigate(['/home']);
-				console.log('Dato actualizado correcamente');
+				//console.log('Dato actualizado correcamente');
 			});
 		} else {
 			this.clienteService.save(this.cliente).subscribe( (data) => {
-				//this.formulario.reset();
 				this.router.navigate(['/home']);
-				console.log('Dato guardado correcamente');
+				//console.log('Dato guardado correcamente');
 			});
 		}
 
 	}
-
-	/*saveClient(){
-		if(this.editing){
-			this.clienteService.put(this.cliente).subscribe( (data) => {
-				console.log('Dato actualizado correcamente');
-			});
-		} else {
-			this.clienteService.save(this.cliente).subscribe( (data) => {
-				console.log('Dato guardado correcamente');
-			});
-		}
-	}*/
 
 }
